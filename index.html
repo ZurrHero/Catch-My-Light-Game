@@ -13,12 +13,15 @@
     <!-- import the webpage's javascript file -->
     <script src="/script.js" defer></script>
   </head>  
-  <body>
+  <body id="background">
     <h1>Catch My Light Game</h1>
     
     <p>
-      Welcome! Click on the Start game to begin! 
+      Welcome! Click on the Start button to begin! 
       Repeat the pattern by pressing the buttons in the correct order.
+    </p>
+    <p id="gameResetNotification" class="hidden">
+      Game will reset in 1 minute...
     </p>
     
     <button id="startBtn" onclick="startGame()">
@@ -27,13 +30,35 @@
     <button id="stopBtn" class="hidden" onclick="stopGame()">
       Stop
     </button>
-      
+    
+    <label id="timerLabel" alt="This is the timer" for="timer" style="position:center">Timer: 0 seconds elapsed</label>
+    <label id="strikesLabel" alt="This is how many strikes user got">Strikes: 0 of 3</label>
+    
       <div id="gameButtonArea">
-      <button id="button1" onclick="guess(1)" onmousedown="startTone(1)" onmouseup="stopTone()"></button>
-      <button id="button2" onclick="guess(2)" onmousedown="startTone(2)" onmouseup="stopTone()"></button>
-      <button id="button3" onclick="guess(3)" onmousedown="startTone(3)" onmouseup="stopTone()"></button>
-      <button id="button4" onclick="guess(4)" onmousedown="startTone(4)" onmouseup="stopTone()"></button>
+      <button id="button1" onclick="guess(1)" onmousedown="playNumber(1)" onmouseup="stopTone()">
+        <img src="https://cdn.glitch.com/ed91411b-c8da-499b-be53-138fd70610f2%2F1.jpg?v=1619000164012" alt="The Number 1" class="hidden" width="175" height="175" style="position: center">
+        <audio src="https://cdn.glitch.com/ed91411b-c8da-499b-be53-138fd70610f2%2F1.wav?v=1619019790314" id="number1" alt="Saying the Number 1">Play Number 1 sound</audio>
+        </button>
+      <button id="button2" onclick="guess(2)" onmousedown="playNumber(2)" onmouseup="stopTone()">
+        <img src="https://cdn.glitch.com/ed91411b-c8da-499b-be53-138fd70610f2%2F2.jpg?v=1619000163997" alt="The Number 2" class="hidden" width="175" height="175" style="position: center">
+        <audio src="https://cdn.glitch.com/ed91411b-c8da-499b-be53-138fd70610f2%2F2.wav?v=1619019790395" id="number2" alt="Saying the Number 2">Play Number 2 sound</audio>
+        </button>
+      <button id="button3" onclick="guess(3)" onmousedown="playNumber(3)" onmouseup="stopTone()">
+        <img src="https://cdn.glitch.com/ed91411b-c8da-499b-be53-138fd70610f2%2F3.png?v=1619000165244" alt="The Number 3" class="hidden" width="175" height="175" style="position: center">
+        <audio src="https://cdn.glitch.com/ed91411b-c8da-499b-be53-138fd70610f2%2F3.wav?v=1619019790314" id="number3" alt="Saying the Number 3">Play Number 3 sound</audio>
+        </button>
+      <button id="button4" onclick="guess(4)" onmousedown="playNumber(4)" onmouseup="stopTone()">
+        <img src="https://cdn.glitch.com/ed91411b-c8da-499b-be53-138fd70610f2%2F4.jpg?v=1619000162939" alt="The Number 4" class="hidden" width="175" height="175" style="position: center">
+        <audio src="https://cdn.glitch.com/ed91411b-c8da-499b-be53-138fd70610f2%2F4.wav?v=1619019790314" id="number4" alt="Saying the Number 4">Play Number 4 sound</audio>
+        </button>
+      <button id="button5" onclick="guess(5)" onmousedown="playNumber(5)" onmouseup="stopTone()">
+        <img src="https://cdn.glitch.com/ed91411b-c8da-499b-be53-138fd70610f2%2F5.jpg?v=1619019261920" alt="The Number 5" class="hidden" width="175" height="175" style="position: center">
+        <audio src="https://cdn.glitch.com/ed91411b-c8da-499b-be53-138fd70610f2%2F5.wav?v=1619019790377" id="number5" alt="Saying the Number 5">Play Number 5 sound</audio>
+        </button>
       </div>
-
+    
+    <label id="guessTimeLimitLabel" alt="This is the time left to guess">Choose a pattern: 60 seconds left</label>
+    <button id="colorButton" alt="This button is to change the background color" onclick="changeColor()">Background Color</button>
+    <label id="refreshLabel" alt="This label is to tell user to refresh page to go back to original colors" class="hidden">Refresh the page to reset the game and to its original colors.</label>
   </body>
 </html>
